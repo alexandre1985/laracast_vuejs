@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	.is-loading {
+		background-color: blue;
+	}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<button v-bind:title="title" :class="{ 'is-loading': isLoading }" @click="toggleLoading">I am a button</button>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+
+	<script>
+	new Vue({
+		el: '#root',
+		data: {
+			title: 'javascript title',
+			isLoading: false,
+		},
+		methods: {
+			toggleLoading() {
+				this.isLoading = ! this.isLoading;
+			}
+		}
+	});
+
+	Vue.config.devtools = true;
+	</script>
+</body>
+</html>

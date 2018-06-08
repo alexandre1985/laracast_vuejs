@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+	<style>
+	body {
+		padding-top: 40px;
+	}
+</style>
+</head>
+<body>
+	<div id="root" class="container">
+		<modal v-show="showModal" @close-modal="showModal = false">
+			<template slot="header">Titulo</template>
+			Conteudo
+			<div slot="footer">
+				<button class="button is-success">Guardar</button>
+				<button class="button">Cancelar</button>
+			</div>
+		</modal>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

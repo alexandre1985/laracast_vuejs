@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="root">
+		<h1>Todas Tarefas:</h1>
+		<ul>
+			<li v-for="task in tasks" v-text="task.description"></li>
+		</ul>
+
+		<h1>Todas Tarefas incompletas:</h1>
+		<ul>
+			<li v-for="task in incompletedTasks" v-text="task.description"></li>
+		</ul>
+
+		<h1>Todas Tarefas completas:</h1>
+		<ul>
+			<li v-for="task in completedTasks" v-text="task.description"></li>
+		</ul>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+
+	<script>
+		new Vue({
+			el: '#root',
+			data: {
+				tasks: [
+				{ description: 'Passear', completed: false },
+				{ description: 'Comer', completed: true },
+				{ description: 'Meditar', completed: false },
+				]
+			},
+			computed: {
+				incompletedTasks() {
+					return this.tasks.filter(t => !t.completed);
+				},
+				completedTasks() {
+					return this.tasks.filter(t => t.completed);
+				}
+			}
+		});
+		
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="root">
+		<h1 v-text="reversedMessage"></h1>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+
+	<script>
+		new Vue({
+			el: '#root',
+			data: {
+				message: 'Daniel Santos'
+			},
+			computed: {
+				reversedMessage() {
+					return this.message.split('').reverse().join('');
+				}
+			}
+		});
+		
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>

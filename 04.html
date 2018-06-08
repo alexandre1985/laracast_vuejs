@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="root">
+		<ul>
+			<li v-for="name in names" v-text="name"></li>
+		</ul>
+		<input type="text" v-model="inputName">
+		<button v-on:click="addName">Add</button>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"></script>
+
+	<script>
+		new Vue({
+			el: '#root',
+			data: {
+				names: ['Daniel', 'Mónica', 'Maria'],
+				inputName: ''
+			},
+			mounted() {
+				alert('everything is ready');
+			},
+			methods: {
+				addName: function () {
+					this.names.push(this.inputName);
+					this.inputName = '';
+				}
+			}
+		});
+		
+		Vue.config.devtools = true;
+	</script>
+</body>
+</html>
